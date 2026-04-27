@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Album Photo Sombre</title>
+    <style>
+        /* Le style "Sombre" (CSS) */
+        body {
+            background-color: #121212; /* Noir profond */
+            color: #e0e0e0;           /* Texte gris clair */
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+
+        .menu {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #505050;
+            border-color: #888;
+        }
+
+        .galerie {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: none; /* Cache les photos au départ */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mon Album Photo</h1>
+
+    <div class="menu">
+        <button onclick="afficher('img1')">Photo 1</button>
+        <button onclick="afficher('img2')">Photo 2</button>
+        <button onclick="afficher('img3')">Photo 3</button>
+        <button onclick="toutAfficher()">Tout voir</button>
+    </div>
+
+    <div class="galerie">
+        <img id="img1" src="photo1.jpg" alt="Photo 1">
+        <img id="img2" src="photo2.jpg" alt="Photo 2">
+        <img id="img3" src="photo3.jpg" alt="Photo 3">
+    </div>
+
+    <script>
+        // La petite logique pour afficher les photos
+        function afficher(id) {
+            // Cache toutes les images d'abord
+            document.querySelectorAll('img').forEach(img => img.style.display = 'none');
+            // Affiche celle demandée
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function toutAfficher() {
+            document.querySelectorAll('img').forEach(img => img.style.display = 'block');
+        }
+    </script>
+
+</body>
+</html>
